@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Jiangwei's Notes">
 <meta property="og:description" content="前言不小心，一年就过去了，上一篇已经在一年之前咯，把最近遇到的坑总结一下吧，以纪念这流逝的时光。
 分类Spring Boot也许是之前困于某些人的原因，固步自封在Weblogic的世界，接入Spring boot让我还是很惊讶于技术的发展，所有的一切都在jar中，包括server、js、css，结合Maven构建工具以及模版引擎Themyleaf，完整的解决方案，但是由于封装的比较深入，如果没有s">
-<meta property="og:updated_time" content="2017-05-31T14:23:54.000Z">
+<meta property="og:updated_time" content="2017-05-31T14:28:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="“近期小结”">
 <meta name="twitter:description" content="前言不小心，一年就过去了，上一篇已经在一年之前咯，把最近遇到的坑总结一下吧，以纪念这流逝的时光。
@@ -311,7 +311,7 @@
 <h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h3><p>也许是之前困于某些人的原因，固步自封在Weblogic的世界，接入Spring boot让我还是很惊讶于技术的发展，所有的一切都在jar中，包括server、js、css，结合Maven构建工具以及模版引擎Themyleaf，完整的解决方案，但是由于封装的比较深入，如果没有spring基础理解起来还是比较有难度；这次项目集成spring session于redis，完全替换之前的架构，具体使用效果要在之后项目的使用过程中来评估和改进。</p>
 <h3 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h3><p>cavas的drawImage方法第一次加载时会出现白屏的问题，这次遇到的原因img.src赋值在img.onload方法之前（在onload方法中进行执行drawImage），由于image的加载是异步的，在onload之前，src可能已经加载完毕，onload动作就会被跳过，所以在给src赋值之前应该先绑定事件，确保事件会被执行。<br>参考<a href="CORS enabled image">MDN CORS enabled image</a> 实现的例子，在pc的chrome上问题解决。</p>
 <p><strong>但是</strong></p>
-<p>在移动端问题依然在，img的onload方法不执行，继续查找解决方案在Stack Overflow上找到相关问题<a href="https://stackoverflow.com/questions/3877027/jquery-callback-on-image-load-even-when-the-image-is-cached/3877079#3877079" target="_blank" rel="external">jQuery callback on image load (even when the image is cached)</a>被选中的答案并不是最终解决问题的答案，最终解决问题是参考了如下这个回复：</p>
+<p>在移动端问题依然在，img的onload方法不执行，继续查找解决方案在Stack Overflow上找到相关问题<a href="https://stackoverflow.com/questions/3877027/jquery-callback-on-image-load-even-when-the-image-is-cached/3877079#3877079" target="_blank" rel="external">jQuery callback on image load</a>被选中的答案并不是最终解决问题的答案，最终解决问题是参考了如下这个回复：</p>
 <blockquote>
 <p>Do you really have to do it with jQuery? You can attach the onload event directly to your image as well;</p>
 <p><code>&lt;img src=&quot;/path/to/image.jpg&quot; onload=&quot;doStuff(this);&quot; /&gt;</code></p>
